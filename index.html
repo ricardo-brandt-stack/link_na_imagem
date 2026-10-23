@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCRIBA HUB - Imagem Clicável</title>
+    
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Biblioteca client-side para gerar o PDF interativo -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body class="dark-theme">
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-top">
+                <h1>🖼️ Gerador de Imagem Clicável</h1>
+                <button id="theme-toggle" class="btn-theme" type="button">🌙 Escuro</button>
+            </div>
+            <p>Anexe um link a uma imagem e baixe o arquivo interativo</p>
+            <span class="badge-privacy">🔒 Processamento 100% Local</span>
+        </header>
+
+        <div class="main-card">
+            <!-- PAINEL DE CONFIGURAÇÃO -->
+            <div class="form-group">
+                <label>1. Selecione a Imagem:</label>
+                <div class="drop-zone" id="drop-zone">
+                    <p id="drop-text">📂 Clique ou arraste uma imagem aqui (PNG, JPG, WEBP)</p>
+                    <input type="file" id="image-input" accept="image/*">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="link-url">2. Link de Destino (URL):</label>
+                <input type="url" id="link-url" placeholder="https://seu-site-ou-destino.com" autocomplete="off">
+            </div>
+
+            <div class="form-group row-group">
+                <label>
+                    <input type="checkbox" id="check-new-tab" checked>
+                    Abrir link em uma nova guia (`target="_blank"`)
+                </label>
+            </div>
+
+            <!-- EXIBIÇÃO EXCLUSIVA DA IMAGEM (PRÉ-VISUALIZAÇÃO) -->
+            <div class="preview-section" id="preview-section" style="display: none;">
+                <div class="preview-container">
+                    <a id="preview-link" href="#" target="_blank" rel="noopener noreferrer">
+                        <img id="preview-img" src="" alt="Imagem Clicável">
+                    </a>
+                </div>
+
+                <!-- BOTOES DE DOWNLOAD -->
+                <div class="download-actions">
+                    <button class="btn btn-success" id="btn-download-pdf">💾 Baixar Imagem Clicável (.PDF)</button>
+                    <button class="btn btn-secondary" id="btn-download-html">🌐 Baixar Imagem Interativa (.HTML)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-msg" id="status-text"></div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
